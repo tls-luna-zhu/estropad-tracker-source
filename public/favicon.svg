@@ -1,0 +1,20 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pastel Heart Favicon in Pixel Art Style -->
+  <style>
+    .heart-pink { fill: #ff9cee; }
+    .heart-pink-dark { fill: #e06fc5; }
+    .heart-outline { fill: #2d0e38; }
+  </style>
+  
+  <!-- Pixel Heart Outline -->
+  <path class="heart-outline" d="M8,8 h4 v-4 h8 v4 h4 v4 h4 v8 h-4 v4 h-4 v4 h-8 v-4 h-4 v-4 h-4 v-8 h4 z" />
+  
+  <!-- Pixel Heart Fill -->
+  <path class="heart-pink" d="M12,8 h8 v4 h4 v8 h-4 v4 h-8 v-4 h-4 v-8 h4 z" />
+  
+  <!-- Pixel Heart Shading -->
+  <path class="heart-pink-dark" d="M16,12 h4 v4 h-4 v4 h-4 v-4 h4 z" />
+  
+  <!-- Pixel Heart Highlight -->
+  <path fill="#ffffff" d="M12,8 h4 v4 h-4 z" opacity="0.5" />
+</svg>
