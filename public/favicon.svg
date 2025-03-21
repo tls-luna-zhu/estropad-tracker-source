@@ -1,20 +1,24 @@
-<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <!-- Pastel Heart Favicon in Pixel Art Style -->
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .heart-pink { fill: #ff9cee; }
-    .heart-pink-dark { fill: #e06fc5; }
-    .heart-outline { fill: #2d0e38; }
+    .heart {
+      fill: #ff85a2;
+      stroke: #e56b87;
+      stroke-width: 4;
+    }
+    .shine {
+      fill: #ffa5c0;
+      opacity: 0.7;
+    }
   </style>
-  
-  <!-- Pixel Heart Outline -->
-  <path class="heart-outline" d="M8,8 h4 v-4 h8 v4 h4 v4 h4 v8 h-4 v4 h-4 v4 h-8 v-4 h-4 v-4 h-4 v-8 h4 z" />
-  
-  <!-- Pixel Heart Fill -->
-  <path class="heart-pink" d="M12,8 h8 v4 h4 v8 h-4 v4 h-8 v-4 h-4 v-8 h4 z" />
-  
-  <!-- Pixel Heart Shading -->
-  <path class="heart-pink-dark" d="M16,12 h4 v4 h-4 v4 h-4 v-4 h4 z" />
-  
-  <!-- Pixel Heart Highlight -->
-  <path fill="#ffffff" d="M12,8 h4 v4 h-4 z" opacity="0.5" />
+  <g transform="rotate(45, 50, 50)">
+    <!-- Main heart shape -->
+    <rect x="25" y="25" width="50" height="50" class="heart" rx="5" />
+    <circle cx="25" cy="50" r="25" class="heart" />
+    <circle cx="50" cy="25" r="25" class="heart" />
+    
+    <!-- Pixel shine effect -->
+    <rect x="35" y="35" width="10" height="10" class="shine" />
+    <rect x="30" y="45" width="5" height="5" class="shine" />
+  </g>
 </svg>

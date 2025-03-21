@@ -1,8 +1,11 @@
-import { useState } from 'react';
-import { useAuth } from '@/lib/auth';
+import React, { useState } from 'react';
+import '../components/PixelStyles.css';
 
-export default function LoginForm() {
-  const { login } = useAuth();
+interface LoginFormProps {
+  onLogin: (email: string, password: string) => Promise<void>;
+}
+
+const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -14,7 +17,7 @@ export default function LoginForm() {
     setIsLoading(true);
 
     try {
-      await login(email, password);
+      await onLogin(email, password);
     } catch (err) {
       setError('Invalid email or password');
     } finally {
@@ -24,37 +27,39 @@ export default function LoginForm() {
 
   return (
     <div className="pixel-card max-w-md mx-auto">
-      <h2 className="text-2xl font-bold mb-6 text-center">Login to Luna's EstroPad Tracker</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center pixel-text">Login to Luna's EstroPad Tracker</h2>
       
       {error && (
-        <div className="bg-[var(--error)] p-3 mb-4 text-white">
+        <div style={{ backgroundColor: 'var(--error)', padding: '12px', marginBottom: '16px', color: 'white' }}>
           {error}
         </div>
       )}
       
       <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="email" className="block mb-2">
+        <div style={{ marginBottom: '16px' }}>
+          <label htmlFor="email" style={{ display: 'block', marginBottom: '8px' }}>
             Email
           </label>
           <input
             id="email"
             type="email"
-            className="pixel-input w-full"
+            className="pixel-input"
+            style={{ width: '100%' }}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
         
-        <div className="mb-6">
-          <label htmlFor="password" className="block mb-2">
+        <div style={{ marginBottom: '24px' }}>
+          <label htmlFor="password" style={{ display: 'block', marginBottom: '8px' }}>
             Password
           </label>
           <input
             id="password"
             type="password"
-            className="pixel-input w-full"
+            className="pixel-input"
+            style={{ width: '100%' }}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -63,16 +68,15 @@ export default function LoginForm() {
         
         <button
           type="submit"
-          className="pixel-button w-full"
+          className="pixel-button"
+          style={{ width: '100%' }}
           disabled={isLoading}
         >
           {isLoading ? 'Logging in...' : 'Login'}
         </button>
       </form>
-      
-      <div className="mt-4 text-center">
-        <p>Don't have an account? <a href="/register" className="text-[var(--primary-dark)] hover:underline">Register</a></p>
-      </div>
     </div>
   );
-}
+};
+
+export default LoginForm;

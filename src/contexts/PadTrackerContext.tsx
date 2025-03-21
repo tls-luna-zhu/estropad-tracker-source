@@ -1,6 +1,4 @@
-"use client";
-
-import { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // Define the Pad type
 export type Pad = {
